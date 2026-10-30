@@ -7,26 +7,20 @@ import About from "../pages/home/About";
 import ProfileAbduqodir from "../pages/profile-abduqodir/ProfileAbduqodir";
 import Basket from "../pages/basket/Basket";
 import UserProfile from "../pages/userprofile/UserProfile";
-
+import BasketHistory from "../pages/home/BasketHistory/BasketHistory";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     children: [
-      { index: true, 
-        element: <Home /> 
-      },
-      { path: "/login", 
-        element: <Login /> 
-      },
-   
+      { index: true, element: <Home /> },
+      { path: "/login", element: <Login /> },
       { path: "about", element: <About /> },
-      { path: "basket", element: <BasketHistory /> },
+      { path: "basket", element: <Basket /> },
+      { path: "baskethistory", element: <BasketHistory /> },
       { path: "profile-abduqodir", element: <ProfileAbduqodir /> },
-      { path: "basket", element: <Basket/> },
       { path: "userprofile", element: <UserProfile /> },
-
     ],
   },
 ]);
