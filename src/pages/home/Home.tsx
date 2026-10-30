@@ -1,19 +1,47 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { products, type Product } from "./products";
+import ProductCard from "./ProductCard";
+
+
+
 
 function Home() {
+  const [addedIds, setAddedIds] = useState<number[]>([]);
+
+  const handleAddToBasket = (product: Product) => {
+    const existingCart: Product[] = JSON.parse(
+      localStorage.getItem("basket") || "[]"
+    );
+
+    const updatedCart = [...existingCart, product];
+    localStorage.setItem("basket", JSON.stringify(updatedCart));
+
+    setAddedIds((prev) => [...prev, product.id]);
+    setTimeout(() => {
+      setAddedIds((prev) => prev.filter((id) => id !== product.id));
+    }, 1500);
+  };
+
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center p-6 text-center">
-      <h1 className="text-4xl font-bold text-slate-800 mb-4">WMS Fintech App</h1>
-      <p className="text-slate-600 mb-6 max-w-md">
-        Добро пожаловать в проект WMS Fintech.
-      </p>
-      <Link
-        to="/profile-abduqodir"
-        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 text-white font-medium hover:bg-slate-800 transition-all shadow-md hover:shadow-lg"
-      >
-        <span>Открыть Profile Abduqodir (Spacecraft)</span>
-        <span>🚀</span>
-      </Link>
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      <h1 className="text-3xl font-extrabold text-gray-900 mb-8">
+        Mahsulotlar Katalogi
+      </h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {products.map((product) => {
+          
+
+          return (
+            <ProductCard
+              key={product.id}
+              product={product}
+              addedIds={addedIds}
+              onAddToBasket={handleAddToBasket}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
