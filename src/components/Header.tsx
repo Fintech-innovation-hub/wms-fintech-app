@@ -14,8 +14,14 @@ function Header() {
         <NavLink to="/profile-abduqodir" end className="header__link">
           Abduqodir
         </NavLink>
+        <NavLink to="/basket" end className="header__link">
+          Savat
+        </NavLink>
         <NavLink to="/login" end className="header__link">
           Login
+        </NavLink>
+        <NavLink to="/basket" end className="basket_link">
+        Basket
         </NavLink>
       </nav>
     </header>
