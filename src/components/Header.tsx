@@ -26,6 +26,19 @@ function Header() {
         >
           Home
         </NavLink>
+        <NavLink
+          to="/about"
+          end
+          className={({ isActive }) =>
+            `text-base font-medium transition-colors relative pb-1 ${
+              isActive
+                ? "text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-500 after:rounded"
+                : "text-gray-400 hover:text-white"
+            }`
+          }
+        >
+          About
+        </NavLink>
       </nav>
     </header>
   );
