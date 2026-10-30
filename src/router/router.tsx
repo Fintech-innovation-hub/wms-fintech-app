@@ -22,6 +22,7 @@ export const router = createBrowserRouter([
       },
    
       { path: "about", element: <About /> },
+      { path: "basket", element: <BasketHistory /> },
       { path: "profile-abduqodir", element: <ProfileAbduqodir /> },
       { path: "basket", element: <Basket/> },
       { path: "userprofile", element: <UserProfile /> },
