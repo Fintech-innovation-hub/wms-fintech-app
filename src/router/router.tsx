@@ -5,6 +5,7 @@ import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import About from "../pages/home/About";
 import ProfileAbduqodir from "../pages/profile-abduqodir/ProfileAbduqodir";
+import UserProfile from "../pages/userprofile/UserProfile";
 
 
 export const router = createBrowserRouter([
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
    
       { path: "about", element: <About /> },
       { path: "profile-abduqodir", element: <ProfileAbduqodir /> },
+      { path: "userprofile", element: <UserProfile /> },
 
     ],
   },

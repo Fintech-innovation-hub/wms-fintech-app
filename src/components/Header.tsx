@@ -17,6 +17,9 @@ function Header() {
         <NavLink to="/login" end className="header__link">
           Login
         </NavLink>
+        <NavLink to="/userprofile" end className="header__link">
+          UserProfile
+        </NavLink>
       </nav>
     </header>
   );
