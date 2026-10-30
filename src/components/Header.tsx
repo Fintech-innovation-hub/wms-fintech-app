@@ -2,55 +2,20 @@ import { NavLink } from "react-router";
 
 function Header() {
   return (
-    <header className="flex items-center justify-between px-8 py-4 bg-gray-900 text-white shadow-md">
-      {/* Логотип */}
-      <NavLink 
-        to="/" 
-        className="text-2xl font-bold tracking-wider hover:opacity-80 transition-opacity"
-      >
+    <header className="header bg-blue-500 px-16 py-5 flex items-center justify-center gap-6">
+      <NavLink to="/" className="header__logo">
         VMS
       </NavLink>
 
-      {/* Навигация */}
-      <nav className="flex items-center gap-6">
-        <NavLink
-          to="/"
-          end
-          className={({ isActive }) =>
-            `text-base font-medium transition-colors relative pb-1 ${
-              isActive
-                ? "text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-500 after:rounded"
-                : "text-gray-400 hover:text-white"
-            }`
-          }
-        >
+      <nav className="header__nav flex items-center gap-5">
+        <NavLink to="/" end className="header__link">
           Home
         </NavLink>
-        <NavLink
-          to="/about"
-          end
-          className={({ isActive }) =>
-            `text-base font-medium transition-colors relative pb-1 ${
-              isActive
-                ? "text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-500 after:rounded"
-                : "text-gray-400 hover:text-white"
-            }`
-          }
-        >
-          About
+        <NavLink to="/profile-abduqodir" end className="header__link">
+          Abduqodir
         </NavLink>
-        <NavLink
-          to="/profile"
-          end
-          className={({ isActive }) =>
-            `text-base font-medium transition-colors relative pb-1 ${
-              isActive
-                ? "text-white after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-500 after:rounded"
-                : "text-gray-400 hover:text-white"
-            }`
-          }
-        >
-          Profile
+        <NavLink to="/login" end className="header__link">
+          Login
         </NavLink>
       </nav>
     </header>
