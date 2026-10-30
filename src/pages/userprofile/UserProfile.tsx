@@ -59,7 +59,7 @@ function UserProfile() {
             Settings
           </button>
         </div>
-
+          <h1>Salom</h1>
       </div>
     </div>
   )
