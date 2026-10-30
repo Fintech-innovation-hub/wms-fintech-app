@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 
 function Header() {
   // Функция для динамических классов ссылок (подсветка активной страницы)
-  const getLinkClass = ({ isActive }) =>
+  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
     `text-base font-medium transition-colors duration-200 ${isActive
       ? "text-white font-semibold border-b-2 border-white pb-0.5"
       : "text-sky-100 hover:text-white"
@@ -29,7 +29,8 @@ function Header() {
         </NavLink>
         <NavLink to="/basket" end className={getLinkClass}>
           Basket
-        <NavLink to="/userprofile" end className="header__link">
+        </NavLink>
+        <NavLink to="/userprofile" end className={getLinkClass}>
           UserProfile
         </NavLink>
       </nav>
