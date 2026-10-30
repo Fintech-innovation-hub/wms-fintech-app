@@ -1,5 +1,3 @@
-import { NavLink } from "react-router";
-
 function Header() {
   return (
     <header className="header bg-blue-500 px-16 py-5 flex items-center justify-center gap-6">
