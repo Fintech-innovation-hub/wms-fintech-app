@@ -29,6 +29,8 @@ function Header() {
         </NavLink>
         <NavLink to="/basket" end className={getLinkClass}>
           Basket
+        <NavLink to="/userprofile" end className="header__link">
+          UserProfile
         </NavLink>
       </nav>
     </header>
