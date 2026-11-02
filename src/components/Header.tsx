@@ -22,7 +22,7 @@ function Header() {
     <header className="header bg-blue-900 px-6 md:px-16 py-4 flex flex-wrap items-center justify-between gap-4 shadow-md">
       <div className="flex items-center gap-8">
         <NavLink
-          to="/"
+          to=""
           className="header__logo text-2xl font-bold text-white tracking-wider hover:opacity-85 transition-opacity"
         >
           VMS
