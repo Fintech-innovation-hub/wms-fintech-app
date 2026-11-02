@@ -15,21 +15,31 @@ function readBasket(): Product[] {
 }
 
 function BasketHistory() {
-  const [basket, setBasket] = useState<Product[]>([]);
+  const [basket, setBasket] = useState<Product[]>(readBasket);
 
   useEffect(() => {
-    setBasket(readBasket());
+    const handleUpdate = () => {
+      setBasket(readBasket());
+    };
+    window.addEventListener("storage", handleUpdate);
+    window.addEventListener("basket-updated", handleUpdate);
+    return () => {
+      window.removeEventListener("storage", handleUpdate);
+      window.removeEventListener("basket-updated", handleUpdate);
+    };
   }, []);
 
   const removeFromBasket = (indexToRemove: number) => {
     const updatedBasket = basket.filter((_, index) => index !== indexToRemove);
     localStorage.setItem(BASKET_KEY, JSON.stringify(updatedBasket));
     setBasket(updatedBasket);
+    window.dispatchEvent(new Event("basket-updated"));
   };
 
   const clearBasket = () => {
     localStorage.removeItem(BASKET_KEY);
     setBasket([]);
+    window.dispatchEvent(new Event("basket-updated"));
   };
 
   const total = basket.reduce((sum, product) => sum + product.price, 0);
