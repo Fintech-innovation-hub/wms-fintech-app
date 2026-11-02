@@ -8,6 +8,7 @@ import ProfileAbduqodir from "../pages/profile-abduqodir/ProfileAbduqodir";
 import Basket from "../pages/basket/Basket";
 import UserProfile from "../pages/userprofile/UserProfile";
 import BasketHistory from "../pages/home/BasketHistory/BasketHistory";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -15,12 +16,40 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { index: true, element: <Home /> },
-      { path: "/login", element: <Login /> },
+      { path: "login", element: <Login /> },
       { path: "about", element: <About /> },
-      { path: "basket", element: <Basket /> },
-      { path: "baskethistory", element: <BasketHistory /> },
-      { path: "profile-abduqodir", element: <ProfileAbduqodir /> },
-      { path: "userprofile", element: <UserProfile /> },
+      {
+        path: "basket",
+        element: (
+          <ProtectedRoute>
+            <Basket />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "baskethistory",
+        element: (
+          <ProtectedRoute>
+            <BasketHistory />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profile-abduqodir",
+        element: (
+          <ProtectedRoute>
+            <ProfileAbduqodir />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "userprofile",
+        element: (
+          <ProtectedRoute>
+            <UserProfile />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);
